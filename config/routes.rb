@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  resources :posts
+
   resources :users
+  resources :feeds
+  #post ':controller(/:action(/:id))'
+  post '/feeds/:user_id_for/', to: 'feeds#feed_post'
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   root  'static_pages#home'

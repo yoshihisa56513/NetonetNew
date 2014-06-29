@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+
+ <%= @post.user_id %>
+
+</p>
+<p>
+  <%= link_to User.find(post.post_user_id).name, :controller => 'users', :action => 'show', :id => post.post_user_id %>
+</p>
+
+<p>
+  <strong>Post user:</strong>
+  <%= @post.post_user_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

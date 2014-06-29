@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @micropost = current_user.microposts.build if signed_in?
+    @posts = Post.where("user_id = ?", @user.id)
+    @post = Post.new
+    @post.user_id = @user.id
+    @post.post_user_id = @current_user.id
+
   end
   def new
     @user = User.new
