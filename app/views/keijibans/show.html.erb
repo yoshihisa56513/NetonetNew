@@ -1,0 +1,30 @@
+
+<h1><%= @keijiban.title %></h1>
+<div class="row">
+<aside class="span4">
+<%= form_for [@keijiban, @keijiban.responses.build] do |f| %>
+    <%= f.label :ID %><br>
+    <%= f.text_field :user_id %><br>
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %> <br>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %><br>
+    <%= f.submit %>
+    <% end %>
+  </aside>
+
+<% @responses.each do |response| %>
+
+    <%if response%>
+<!---
+    <%# link_to User.find(response.user_id).name, "/users/show/#{response.user_id}"%>
+-->   <%= response.user_id %>
+      <%= link_to response.name, "/users/#{response.user_id}"%><br>
+      <%# response.user_id %>
+      <%# response.name %>
+      <%= response.content %><br>
+      <%end%>
+
+<% end %>
+
+</div>

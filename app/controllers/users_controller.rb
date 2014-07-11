@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     @post = Post.new
     @post.user_id = @user.id
     @post.post_user_id = @current_user.id
+    @responses = Response.where("user_id = ?", @user_id)
+    @response = Response.new
+    @response.user_id = @current_user.id
 
   end
   def new

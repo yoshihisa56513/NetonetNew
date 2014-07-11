@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629050047) do
+ActiveRecord::Schema.define(version: 20140704063319) do
+
+  create_table "keijibans", force: true do |t|
+    t.string   "title"
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -29,6 +37,17 @@ ActiveRecord::Schema.define(version: 20140629050047) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "responses", force: true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.integer  "keijiban_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "responses", ["keijiban_id"], name: "index_responses_on_keijiban_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

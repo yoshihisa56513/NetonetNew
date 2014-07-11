@@ -30,7 +30,10 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.save
+    #redirect_to post_path(@post.id)
+    redirect_to :back
+=begin
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -40,6 +43,7 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PATCH/PUT /posts/1

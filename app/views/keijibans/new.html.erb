@@ -1,0 +1,13 @@
+<h1>掲示板を作りましょう</h1>
+<%= form_for @keijiban do |k| %>
+    <p>
+      <%= k.label :title %> <br>
+      <%= k.text_area :title %>
+
+    </p>
+
+    <p>
+      <%= k.submit %>
+    </p>
+
+<% end %>

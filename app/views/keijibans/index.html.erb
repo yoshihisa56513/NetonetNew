@@ -1,0 +1,9 @@
+<h1>掲示板</h1>
+<p><%= link_to "スレをつくる", new_keijiban_path %></p>
+<br>
+<ul>
+  <% @keijibans.each do |keijiban| %>
+  <li><%= link_to keijiban.title, keijiban_path(keijiban.id) %></li>
+  <% end %>
+
+</ul>

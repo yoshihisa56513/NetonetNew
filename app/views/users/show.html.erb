@@ -35,39 +35,36 @@
     <%= f.label :post_user_id %><br>
     <%= f.number_field :post_user_id %>
   </div>
+
   <div class="field">
-    <%= f.label :content %><br>
+    <%= f.label :content %>
     <%= f.text_area :content %>
   </div>
   <div class="actions">
     <%= f.submit %>
-  </div>
+</div>
   <% end %>
 
 
 </aside>
-  <!--
-  <div class="span8">
-    <% if @user.microposts.any? %>
-    <h3>Microposts(<%= @user.microposts.count %>)</h3>
-    <ol class="microposts" >
-      <%= render @microposts %>
-    </ol>
-     <%=will_paginate @microposts %>
-    <% end %>
-  </div>
-  -->
-  <table>
-   <tbody>
+
+
+
+
   <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user_id %></td>
 
-        <td><%= link_to User.find(post.post_user_id).name, :controller => 'users', :action => 'show', :id => post.post_user_id %></td>
 
-        <td><%= post.content %></td>
-      </tr>
+
+        <li>
+
+          <%= link_to User.find(post.post_user_id).name, :controller => 'users', :action => 'show', :id => post.post_user_id %>
+
+        <span class="content"><%= post.content %></span>
+        </li>
+
   <% end %>
-   </tbody>
-  </table>
-</div>
+
+
+  </div>
+
+

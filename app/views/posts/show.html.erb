@@ -1,23 +1,34 @@
 <p id="notice"><%= notice %></p>
-
+<!--
 <p>
 
- <%= @post.user_id %>
+ <%= #@post.user_id %>
 
 </p>
 <p>
-  <%= link_to User.find(post.post_user_id).name, :controller => 'users', :action => 'show', :id => post.post_user_id %>
+  <%= #link_to User.find(post.post_user_id).name, :controller => 'users', :action => 'show', :id => post.post_user_id %>
 </p>
 
 <p>
   <strong>Post user:</strong>
-  <%= @post.post_user_id %>
+  <%= #@post.post_user_id %>
 </p>
 
 <p>
   <strong>Content:</strong>
-  <%= @post.content %>
+  <%= #@post.content %>
 </p>
+-->
+<li>
+  <p>
+    <%= link_to User.find(post.post_user_id).name, :controller => 'users', :action => 'show', :id => post.post_user_id %>
+  </p>
+
+  <span class="content"><%= @post.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(post.created_at) %> ago.
+  </span>
+</li>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
